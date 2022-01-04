@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
-export class CreaturesService {
+export class PartsService {
   getAll(){
     return [
       { id: 1, title: 'Front Rim', price: 500 },
