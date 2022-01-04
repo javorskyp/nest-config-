@@ -1,6 +1,9 @@
-import { Controller } from "@nestjs/common";
+import { Controller, Get } from "@nestjs/common";
 
-export class CreaturesControllers {
+@Controller('creatures')
+export class CreaturesController {
+
+  @Get('/rims')
   getCreatures () {
     return [
       { id: 1, title: 'Front Rim', price: 500 },
