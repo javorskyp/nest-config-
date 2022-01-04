@@ -1,13 +1,15 @@
 import { Controller, Get } from "@nestjs/common";
+import { CreaturesService } from "./creatures.service";
 
 @Controller('creatures')
 export class CreaturesController {
+  private creaturesService;
+  constructor(creaturesService: CreaturesService) {
+    this.creaturesService = creaturesService;
+  }
 
   @Get('/rims')
   getCreatures () {
-    return [
-      { id: 1, title: 'Front Rim', price: 500 },
-      { id: 2, title: 'Rear Rim', price: 800 },
-    ];
+    return this.creaturesService.getAll()
   }
 }
