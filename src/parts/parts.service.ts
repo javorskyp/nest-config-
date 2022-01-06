@@ -17,4 +17,12 @@ export class PartsService {
     return parts.find(x => x.id === id)
   }
 
+  add(title: string, price: number) {
+    const id = Math.round(Math.random()*1000);
+    const newPart = {id, title, price};
+    parts.push(newPart);
+
+    return newPart;
+  }
+
 }

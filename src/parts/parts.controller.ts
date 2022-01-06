@@ -1,4 +1,5 @@
 import { Body, Post, Controller, Get, Param } from "@nestjs/common";
+import { CreatePartDto } from "./dtos/create-parts.dto";
 import { PartsService } from "./parts.service";
 
 @Controller('parts')
@@ -6,7 +7,7 @@ export class PartsController {
   constructor(private partsService: PartsService) {
   }
 
-  @Get('/rims')
+  @Get()
   getParts () {
     return this.partsService.getAll()
   }
@@ -17,7 +18,7 @@ export class PartsController {
   }
 
   @Post()
-  addParts(@Body() body: {title: string, price: number} ) {
-
+  addParts(@Body() body: CreatePartDto ) {
+  return this.partsService.add(body.title, body.price)
   }
 }
