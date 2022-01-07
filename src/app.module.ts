@@ -4,7 +4,13 @@ import { AppService } from './app.service';
 import { PartsModule } from './parts/parts.module';
 
 @Module({
-  imports: [PartsModule],
+  imports: [PartsModule,
+  TypeOrmMOdule.forRoot({
+    type: 'sqlite',
+    database: 'db.sqlite',
+    synchronize: true,
+  })
+],
   controllers: [AppController],
   providers: [AppService],
 })
